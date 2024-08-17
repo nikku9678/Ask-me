@@ -1,6 +1,7 @@
 // src/SubmitQuestion.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { base_url } from '../config';
 
 function Askme() {
   const [question, setQuestion] = useState('');
@@ -8,7 +9,7 @@ function Askme() {
   const submitQuestion = async (e) => {
     e.preventDefault();
     if (question.trim()) {
-      await axios.post('http://localhost:5000/api/questions', { content: question });
+      await axios.post(`${base_url}/api/questions`, { content: question });
       setQuestion('');
     }
   };

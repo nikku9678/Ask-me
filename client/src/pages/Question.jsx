@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import { base_url } from '../config';
 
-const socket = io('http://localhost:5000');
+const socket = io(`${base_url}`);
 
 function Questions() {
   const [questions, setQuestions] = useState(() => {
@@ -30,7 +31,7 @@ function Questions() {
   }, []);
 
   const removeQuestion = async (id) => {
-    await axios.delete(`http://localhost:5000/api/questions/${id}`);
+    await axios.delete(`${base_url}/api/questions/${id}`);
     setQuestions((prevQuestions) => {
       const updatedQuestions = prevQuestions.filter((q) => q._id !== id);
       localStorage.setItem('questions', JSON.stringify(updatedQuestions));

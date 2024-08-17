@@ -1,7 +1,7 @@
 // src/SubmitQuestion.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { base_url } from '../config';
+import { base_url } from '../config.js';
 
 function Askme() {
   const [question, setQuestion] = useState('');

@@ -3,15 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes slideIn {
+/* src/animations.css */
+@keyframes expandIn {
   from {
-    transform: translateX(-100%);
+    width: 0;
+    opacity: 0;
   }
   to {
-    transform: translateX(0);
+    width: 350px;
+    opacity: 1;
   }
 }
 
-.animate-slideIn {
-  animation: slideIn 0.5s ease-out;
+@keyframes shrinkOut {
+  from {
+    width: 350px;
+    opacity: 1;
+  }
+  to {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.expand-in {
+  animation: expandIn 1s ease-out forwards;
+}
+
+.shrink-out {
+  animation: shrinkOut 1s ease-out forwards;
 }
